@@ -225,7 +225,7 @@ const data = [
    },
 ];
 
-export default function Favorites() {
+export default function Popular() {
    return (
       <Container sx={{ border: "1px solid red" }}>
          <Box className="boxFavoritesTitle">
@@ -236,7 +236,7 @@ export default function Favorites() {
                   fontWeight: "500",
                }}
             >
-               Favoritas
+               Populares
             </Typography>
          </Box>
          <Box className="boxCards">
