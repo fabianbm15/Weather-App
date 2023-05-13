@@ -1,12 +1,15 @@
-import { Container } from '@mui/material';
-import './App.css';
+import { Box } from "@mui/material";
+import NavBar from "./components/NavBar";
+import "./App.css";
+import Home from "./components/Home";
 
 function App() {
-  return (
-    <Container>
-      <h1>Weather App</h1>
-    </Container>
-  );
+   return (
+      <Box style={{ maxWidth: "100%", padding: "0" }}>
+         <NavBar />
+         <Home />
+      </Box>
+   );
 }
 
 export default App;
