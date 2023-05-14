@@ -28,7 +28,7 @@ El proyecto se ha desarrollado utilizando tecnologías tanto en el frontend como
 
 A continuación, se detallan los pasos para la instalación y ejecución del proyecto:
 
-1. Clonar este repositorio: `git clone https://github.com/fabianbm15/WeatherApp`
+1. Clonar este repositorio: `git clone https://github.com/fabianbm15/WeatherApp.git`
 
 2. Instalar las dependencias del frontend: `cd client && npm install`
 
