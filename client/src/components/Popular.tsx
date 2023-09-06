@@ -234,6 +234,7 @@ export default function Popular() {
                className="titleFavorites"
                sx={{
                   fontWeight: "500",
+                  marginLeft: "8px"
                }}
             >
                Populares
