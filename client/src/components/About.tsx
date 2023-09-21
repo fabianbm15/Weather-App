@@ -3,10 +3,10 @@ import React from "react";
 const authors = [
   {
     nombre: "Carlos Fabian Melgarejo Agudelo",
-    linkedin: "@fabian",
-    linkedinUrl: "@fabian",
-    github: "@fabian",
-    githubUrl: "@fabian",
+    linkedin: "@cmelgarejobm",
+    linkedinUrl: "https://www.linkedin.com/in/cmelgarejobm/",
+    github: "fabianbm15",
+    githubUrl: "https://github.com/fabianbm15",
   },
 ];
 
