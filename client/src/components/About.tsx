@@ -6,6 +6,7 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
+import "./About.css";
 
 type authors = {
   name: string;
@@ -25,14 +26,16 @@ const authorFabian: authors = {
 export default function About() {
   return (
     <Container>
-      <Box>
-        <Card sx={{ maxWidth: 345 }}>
+      <Box
+        sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
+      >
+        <Card sx={{ maxWidth: 345, marginTop: "20px" }}>
           <CardActionArea>
             <CardMedia
               component="img"
               height="140"
-              image="/static/images/cards/contemplative-reptile.jpg"
-              alt="green iguana"
+              src="../image/foto_linkedin.webp"
+              alt="image"
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
