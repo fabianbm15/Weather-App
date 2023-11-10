@@ -1,3 +1,39 @@
-.divFooter{
-border: 1px solid blue;
+header.appBarFooter {
+  width: 100%;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  color: #19376d;
+  box-shadow: none;
+  border: 1px solid black;
+}
+
+.divFooter {
+  border: 0px;
+}
+
+.boxFooter1 {
+  height: 100px;
+  width: 25%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-right: 1px solid blue;
+  margin-right: 50px;
+}
+
+.boxFooter2 {
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nameFooter {
+  color: inherit;
+  text-decoration: none;
+  cursor: auto;
+  user-select: none;
 }
