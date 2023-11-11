@@ -1,0 +1,21 @@
+.containerAbout{
+    border: 1px solid black;
+    height: 500px;
+
+}
+
+.boxAbout{
+    height: 100%;
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.boxCardAbout{
+    height: 150px;
+    width: 360px;
+    border: 1px solid black;
+    padding: 40px 20px;
+    border-radius: 30px;
+}

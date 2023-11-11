@@ -23,10 +23,12 @@ const authorFabian: authors = {
   github: "fabianbm15",
   githubUrl: "https://github.com/fabianbm15",
 };
+
 export default function About() {
   return (
-    <Container>
+    <Container className="containerAbout">
       <Box
+        className="boxAbout"
         sx={{
           display: "flex",
           flexDirection: "column",
@@ -34,15 +36,21 @@ export default function About() {
           alignItems: "center",
         }}
       >
-        <Typography gutterBottom variant="h5" component="div">
-          {authorFabian.name}
+        <Typography gutterBottom variant="h3" component="div">
+          Acerca de nosotros
         </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {authorFabian.linkedin}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {authorFabian.github}
-        </Typography>
+
+        <Box className="boxCardAbout">
+          <Typography gutterBottom variant="h5" component="div">
+            {authorFabian.name}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            {authorFabian.linkedin}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            {authorFabian.github}
+          </Typography>
+        </Box>
       </Box>
     </Container>
   );
