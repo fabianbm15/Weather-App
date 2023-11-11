@@ -1,21 +1,77 @@
-.containerAbout{
-    border: 1px solid black;
-    height: 500px;
-
+.containerAbout {
+  border: 1px solid black;
+  height: 500px;
+  color: #19376d;
 }
 
-.boxAbout{
-    height: 100%;
-    border: 1px solid red;
-    display: flex;
-    flex-direction: column;
-    
+.containerAbout .boxAbout {
+  height: 500px;
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
-.boxCardAbout{
-    height: 150px;
-    width: 360px;
-    border: 1px solid black;
-    padding: 40px 20px;
-    border-radius: 30px;
+.boxCardAbout {
+  /* height: 150px; */
+  width: 380px;
+  border: 3px solid #19376d;
+  padding: 40px 20px;
+  border-radius: 40px;
+}
+
+.boxInfoAuthorsCard {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-between; */
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.authorName {
+  text-align: center;
+}
+
+.imageAuthor1 {
+  width: 40%;
+}
+
+.enlacesAuthor {
+  width: 60%;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.aboutButtonPage {
+  margin: auto;
+  max-width: 300px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #19376d;
+}
+
+.enlacesAuthorText {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  transition: transform 0.3s ease;
+}
+
+.aboutButtonPage :hover {
+  transform: scale(1.1);
+}
+
+.aboutButtonPage :not(:hover) {
+  transform: scale(1);
 }

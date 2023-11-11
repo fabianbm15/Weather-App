@@ -1,11 +1,9 @@
-import React from "react";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { CardActionArea } from "@mui/material";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
+import imageAuthor1 from "../assets/fabian profile pic.webp";
 import "./About.css";
 
 type authors = {
@@ -41,15 +39,24 @@ export default function About() {
         </Typography>
 
         <Box className="boxCardAbout">
-          <Typography gutterBottom variant="h5" component="div">
+          <Typography className="authorName" gutterBottom variant="h5" component="div">
             {authorFabian.name}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {authorFabian.linkedin}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {authorFabian.github}
-          </Typography>
+          <Box className="boxInfoAuthorsCard">
+            <img className="imageAuthor1" src={imageAuthor1} alt="no image" />
+            <Box className="enlacesAuthor">
+              <a href={authorFabian.linkedinUrl} className="aboutButtonPage">
+                <Typography className="enlacesAuthorText" variant="h6">
+                  <LinkedInIcon /> {` ${authorFabian.linkedin}`}
+                </Typography>
+              </a>
+              <a href={authorFabian.githubUrl} className="aboutButtonPage">
+                <Typography className="enlacesAuthorText" variant="h6">
+                  <GitHubIcon /> {` ${authorFabian.github}`}
+                </Typography>
+              </a>
+            </Box>
+          </Box>
         </Box>
       </Box>
     </Container>

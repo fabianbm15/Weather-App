@@ -5,6 +5,7 @@ import Home from "./components/Home";
 import { useLocation } from "react-router-dom";
 import About from "./components/About";
 import Footer from "./components/Footer";
+import Details from "./components/Details";
 
 function App() {
   const location = useLocation();
@@ -17,6 +18,8 @@ function App() {
         <Home />
       ) : location.pathname === "/home" ? (
         <Home />
+      ) : location.pathname === "/details" ? (
+        <Details />
       ) : null}
       <Footer />
     </Box>
