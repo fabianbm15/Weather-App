@@ -1,0 +1,40 @@
+.containerDetails {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  border: 1px solid red;
+  min-height: 480px;
+  padding: 44px 80px 60px 80px;
+}
+
+.boxDetailsInfo {
+  width: 50%;
+  border: 1px solid black;
+}
+
+.cityNameDetails {
+  font-size: 40px;
+  border: 1px solid red;
+}
+
+.iconAndWeather {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+  height: 60px;
+  margin: 45px 0px;
+}
+
+.boxDetailsMap {
+  width: 50%;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.textInfoDetails {
+  font-size: 18px;
+}
