@@ -6,9 +6,9 @@ import "./Details.css"
 
 export default function Details() {
   return (
-    <Container className="containerDetails">
+    <Container className="containerDetails" style={{display: "flex"}}>
       <Box className="boxDetailsInfo">
-        <Typography className="cityNameDetails" variant="h2">Ocamonte, Santander</Typography>
+        <Typography className="cityNameDetails" variant="h3">Ocamonte, Santander</Typography>
         <Box className="iconAndWeather">
           <img src="" alt="no image" />
           <Typography variant="h4">22 °C</Typography>
