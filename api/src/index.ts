@@ -1,21 +1,20 @@
-import express from "express"; // ESModules
-// const express = require('express') // Common JS
+import express from 'express' // ESModules
+// const express = require('express') -> commonjs
 
-import diaryRouter from "./routes/diaries";
+import diaryRouter from './routes/diaries'
 
-const app = express();
+const app = express()
+app.use(express.json()) // middleware que transforma la req.body a un json
 
-app.use(express.json()); // middleware que transforma la req.body a un json
+const PORT = 3000
 
-const PORT = 3000;
+app.get('/ping', (_req, res) => {
+  console.log('someone pinged here!!')
+  res.send('pong')
+})
 
-app.get("/ping", (_req, res) => {
-  console.log("someone pinged here!!");
-  res.send("pong");
-});
-
-app.use("/api/diaries", diaryRouter);
+app.use('/api/diaries', diaryRouter)
 
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+  console.log(`Server running on port ${PORT}`)
+})
