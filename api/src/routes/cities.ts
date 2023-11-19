@@ -4,8 +4,8 @@ const router = express.Router();
 
 router.get("/", (_req, res) => {});
 
-router.get("/:id", (req, res) => {});
+router.get("/search/:name", (req, res) => {});
 
-router.post("/", (req, res) => {});
+router.get("/search/:id", (req, res) => {});
 
 export default router;
