@@ -5,11 +5,16 @@ import Favorites from "./Favorites";
 import Popular from "./Popular";
 
 export default function Home() {
-   return (
-      <Container className="containerHome">
-         <SearchBar />
-         <Favorites />
-         <Popular />
-      </Container>
-   );
+  return (
+    <Container className="containerHome">
+      {location.pathname !== "/popular" ? (
+        <>
+          <SearchBar />
+          <Favorites />
+        </>
+      ) : null}
+
+      <Popular />
+    </Container>
+  );
 }

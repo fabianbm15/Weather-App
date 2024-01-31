@@ -7,8 +7,18 @@ var logger = require("morgan");
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var searchRouter = require("./routes/search");
+var popularRouter = require("./routes/popular");
 
 var app = express();
+
+//Seteamos headers para la respuesta que le enviamos al cliente
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "http://localhost:5173"); //Autorizo recibir solicitudes de este dominio
+  res.header("Access-Control-Allow-Credentials", true); //Autorizo recibir solicitudes que incluyan el encabezado con credenciales
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept"); //Autorizo recibir solicitudes con dichos hedears
+  res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE"); //Autorizo las solicitudes tipo GET, POST, OPTIONS, PUT y DELETE.
+  next();
+});
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -23,6 +33,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/search", searchRouter);
+app.use("/popular", popularRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

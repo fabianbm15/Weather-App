@@ -20,6 +20,8 @@ function App() {
         <Home />
       ) : location.pathname === "/details" ? (
         <Details />
+      ) : location.pathname === "/popular" ? (
+        <Home />
       ) : null}
       <Footer />
     </Box>

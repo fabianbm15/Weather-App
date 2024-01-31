@@ -1,22 +1,101 @@
 .boxCardName {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   justify-content: center;
-   margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
 .boxCard {
-   width: 230px;
-   height: 230px;
-   border: 1px solid black;
-   margin-bottom: 20px;
-   border-radius: 36px;
+  position: relative;
+  overflow: hidden;
+  width: 230px;
+  height: 230px;
+  margin-bottom: 20px;
+  border-radius: 36px;
+  background-color: #7bd3ea;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.boxCard .imageCard {
+  width: 100px;
+  height: 100px;
+  /* border: 1px solid red; */
+}
+
+.boxCardName .boxCard .tempCard {
+  font-size: 30px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+    "Open Sans", "Helvetica Neue", sans-serif;
+  color: #19376d;
+  font-weight: 600;
+}
+
+.boxCardName .boxCard .tempDescription {
+  font-size: 16px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+    "Open Sans", "Helvetica Neue", sans-serif;
+  color: #19376d;
+  font-weight: 600;
+}
+
+.boxCardName .boxCard .boxHoverDetails {
+  position: absolute;
+  bottom: 0;
+  height: 0;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  transition: height 0.3s;
+}
+
+.boxCardName .boxCard:hover .boxHoverDetails {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.boxCardName .boxCard .boxHoverDetails .nameCityHoverDetails {
+  font-size: 26px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+    "Open Sans", "Helvetica Neue", sans-serif;
+  color: #ffffff;
+  text-align: center;
+}
+
+.boxCardName .boxCard .boxHoverDetails .detailsButtonHover {
+  margin-top: 20px;
+  max-width: 150px;
+  height: 50px;
+  width: 90%;
+  border-radius: 12px;
+  background-color: #19376d;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-size: 18px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+    "Open Sans", "Helvetica Neue", sans-serif;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.boxCardName .boxCard .boxHoverDetails .detailsButtonHover:hover {
+  background-color: #2f4e88;
 }
 
 .nameCity {
-   font-size: 18px;
-   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
-      Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-   color: #19376d;
+  font-size: 18px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+    "Open Sans", "Helvetica Neue", sans-serif;
+  color: #19376d;
 }
