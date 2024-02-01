@@ -1,8 +1,8 @@
-import React from "react";
 import Container from "@mui/material/Container";
 import { Box } from "@mui/material";
 import { Typography } from "@mui/material";
 import { useLocation } from "react-router-dom";
+import Maps from "./Maps";
 import "./Details.css";
 
 export default function Details() {
@@ -17,7 +17,6 @@ export default function Details() {
   const { pressure } = city.main;
   const { visibility } = city;
   const { speed } = city.wind;
-  const { lat, lon } = city.coord;
 
   return (
     <Container className="containerDetails" style={{ display: "flex" }}>
@@ -54,7 +53,9 @@ export default function Details() {
           </Typography>
         </Box>
       </Box>
-      <Box className="boxDetailsMap">MAPA</Box>
+      <Box className="boxDetailsMap">
+        <Maps city={city} />
+      </Box>
     </Container>
   );
 }

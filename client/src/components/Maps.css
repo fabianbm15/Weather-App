@@ -1,0 +1,16 @@
+.divContainerMaps {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.divContainerMaps .maps-component {
+  width: 100%;
+  height: 100%;
+}
+
+.divContainerMaps .maps-component .tileLayerMaps {
+  width: 100%;
+  height: 100%;
+}

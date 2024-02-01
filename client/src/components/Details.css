@@ -2,7 +2,6 @@
   color: #19376d;
   flex-direction: row;
   width: 100%;
-  border: 1px solid red;
   min-height: 480px;
   padding: 44px 80px 60px 80px;
 }
@@ -28,14 +27,14 @@
   margin: 20px 0px 20px 0px;
 }
 
+.textInfoDetails {
+  font-size: 18px;
+}
+
 .boxDetailsMap {
   width: 50%;
-  border: 1px solid black;
+  padding: 0 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.textInfoDetails {
-  font-size: 18px;
 }
