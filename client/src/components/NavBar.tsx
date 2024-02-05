@@ -7,19 +7,16 @@ import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
-// import Avatar from '@mui/material/Avatar';
 import Button from "@mui/material/Button";
-// import Tooltip from '@mui/material/Tooltip';
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
-import makeStyles from "@mui/material/styles/makeStyles";
 import { useNavigate } from "react-router-dom";
 import "./NavBar.css";
 
 const pages = [
-  { text: "Inicio", url: "/home" },
+  { text: "Inicio", url: "/" },
   { text: "Ciudades Populares", url: "/popular" },
-  { text: "Acerca de Nosotros", url: "/about" },
+  { text: "Acerca de mí", url: "/about" },
 ];
 // const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 

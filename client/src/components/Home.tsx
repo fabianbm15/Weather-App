@@ -10,11 +10,15 @@ export default function Home() {
       {location.pathname !== "/popular" ? (
         <>
           <SearchBar />
-          <Favorites />
         </>
       ) : null}
 
       <Popular />
+      {location.pathname !== "/popular" ? (
+        <>
+          <Favorites />
+        </>
+      ) : null}
     </Container>
   );
 }

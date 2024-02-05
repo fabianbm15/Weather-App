@@ -1,5 +1,4 @@
 .containerHome {
-   border: 1px solid black;
-   min-height: 300px;
-   padding-top: 35px;
+  min-height: 300px;
+  padding-top: 35px;
 }

@@ -3,18 +3,25 @@ import axios from "axios";
 import SearchIcon from "@mui/icons-material/Search";
 import "./SearchBar.css";
 import { useState } from "react";
-import { City } from "../interface/city";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { changeSearchedCities, setSearchedCity } from "../features/counter/counterSlice";
 
 export default function SearchBar() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [searchCity, setSearchCity] = useState<string>();
+
   const handleChange = (e: any) => {
     setSearchCity(e.target.value);
   };
 
   const handleSearch = async () => {
     try {
-      const response = await axios.get<City[]>(`http://localhost:3000/search?name=${searchCity}`);
-      console.log(response.data);
+      const response = await axios.get(`http://localhost:3000/search?name=${searchCity}`);
+      dispatch(changeSearchedCities(response.data));
+      dispatch(setSearchedCity(searchCity));
+      navigate("/search");
     } catch (error) {
       console.log(error);
     }

@@ -70,11 +70,9 @@ module.exports = {
       res.status(500).json({ error: error.message });
     }
   },
-
   getCityByName: async (req, res) => {
     searchedCitiesName = [];
     searchedCitiesLatLon = [];
-    console.log(req.query.name);
     const name = removeAccents(req.query.name);
     if (name) {
       // Params para la API
@@ -127,21 +125,35 @@ module.exports = {
     searchedCitiesLatLon = [];
     const units = "metric";
     const lang = "es";
+    let lat = 0;
+    let lon = 0;
 
-    try {
-      await Promise.all(
-        searchedCitiesName.map(async (e) => {
-          const lat = e.lat;
-          const lon = e.lon;
-          const data = await axios.get(
+    if (req.query.lat && req.query.lon) {
+      if (!isNaN(req.query.lat) && !isNaN(req.query.lon)) {
+        lat = req.query.lat;
+        lon = req.query.lon;
+
+        try {
+          const response = await axios.get(
             `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${appid}&units=${units}&lang=${lang}`
           );
-          searchedCitiesLatLon.push(data.data);
-        })
-      );
-      res.json(searchedCitiesLatLon);
-    } catch (error) {
-      res.status(500).json({ error: error.message });
+          searchedCitiesLatLon.push(response.data);
+
+          res.json(searchedCitiesLatLon);
+        } catch (error) {
+          res.status(500).json({ error: error.message });
+        }
+      } else {
+        res.status(200).json({
+          message: "Ingrese unas coordenadas válidas.",
+          data: [],
+        });
+      }
+    } else {
+      res.status(200).json({
+        message: "Ingrese unas coordenadas válidas.",
+        data: [],
+      });
     }
   },
 };

@@ -2,15 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import store from "./app/store.ts";
+import { Provider } from "react-redux";
 import "./index.css";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
-  },
-  {
-    path: "/home",
     element: <App />,
   },
   {
@@ -25,10 +23,16 @@ const router = createBrowserRouter([
     path: "/details",
     element: <App />,
   },
+  {
+    path: "/search",
+    element: <App />,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 );

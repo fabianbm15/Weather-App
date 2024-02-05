@@ -1,233 +1,62 @@
 import { Container, Typography, Box } from "@mui/material";
 import "./Favorites.css";
 import Card from "./Card";
-
-const data = [
-  // Bucaramanga
-  {
-    coord: {
-      lon: -73.1157,
-      lat: 7.1173,
-    },
-    weather: [
-      {
-        id: 803,
-        main: "Clouds",
-        description: "muy nuboso",
-        icon: "04d",
-      },
-    ],
-    base: "stations",
-    main: {
-      temp: 22.88,
-      feels_like: 23.26,
-      temp_min: 22.88,
-      temp_max: 22.88,
-      pressure: 1016,
-      humidity: 78,
-    },
-    visibility: 10000,
-    wind: {
-      speed: 4.63,
-      deg: 180,
-    },
-    clouds: {
-      all: 75,
-    },
-    dt: 1683985554,
-    sys: {
-      type: 1,
-      id: 8581,
-      country: "CO",
-      sunrise: 1683974150,
-      sunset: 1684018914,
-    },
-    timezone: -18000,
-    id: 3688465,
-    name: "Bucaramanga",
-    cod: 200,
-  },
-  // Ocamonte
-  {
-    coord: {
-      lon: -73.122,
-      lat: 6.3407,
-    },
-    weather: [
-      {
-        id: 804,
-        main: "Clouds",
-        description: "nubes",
-        icon: "04d",
-      },
-    ],
-    base: "stations",
-    main: {
-      temp: 23.83,
-      feels_like: 23.94,
-      temp_min: 23.83,
-      temp_max: 23.83,
-      pressure: 1014,
-      humidity: 64,
-      sea_level: 1014,
-      grnd_level: 858,
-    },
-    visibility: 10000,
-    wind: {
-      speed: 0.79,
-      deg: 281,
-      gust: 1.15,
-    },
-    clouds: {
-      all: 91,
-    },
-    dt: 1683985619,
-    sys: {
-      country: "CO",
-      sunrise: 1683974215,
-      sunset: 1684018852,
-    },
-    timezone: -18000,
-    id: 3686736,
-    name: "Ocamonte",
-    cod: 200,
-  },
-  // Charalá
-  {
-    coord: {
-      lon: -73.1442,
-      lat: 6.2855,
-    },
-    weather: [
-      {
-        id: 804,
-        main: "Clouds",
-        description: "nubes",
-        icon: "04d",
-      },
-    ],
-    base: "stations",
-    main: {
-      temp: 25.1,
-      feels_like: 25.31,
-      temp_min: 25.1,
-      temp_max: 25.1,
-      pressure: 1014,
-      humidity: 63,
-      sea_level: 1014,
-      grnd_level: 877,
-    },
-    visibility: 10000,
-    wind: {
-      speed: 0.82,
-      deg: 284,
-      gust: 1.13,
-    },
-    clouds: {
-      all: 90,
-    },
-    dt: 1683985698,
-    sys: {
-      country: "CO",
-      sunrise: 1683974225,
-      sunset: 1684018853,
-    },
-    timezone: -18000,
-    id: 3686736,
-    name: "Charalá",
-    cod: 200,
-  },
-  {
-    coord: {
-      lon: -73.1157,
-      lat: 7.1173,
-    },
-    weather: [
-      {
-        id: 803,
-        main: "Clouds",
-        description: "muy nuboso",
-        icon: "04d",
-      },
-    ],
-    base: "stations",
-    main: {
-      temp: 22.88,
-      feels_like: 23.26,
-      temp_min: 22.88,
-      temp_max: 22.88,
-      pressure: 1016,
-      humidity: 78,
-    },
-    visibility: 10000,
-    wind: {
-      speed: 4.63,
-      deg: 180,
-    },
-    clouds: {
-      all: 75,
-    },
-    dt: 1683985554,
-    sys: {
-      type: 1,
-      id: 8581,
-      country: "CO",
-      sunrise: 1683974150,
-      sunset: 1684018914,
-    },
-    timezone: -18000,
-    id: 3688465,
-    name: "Bucaramanga",
-    cod: 200,
-  },
-  {
-    coord: {
-      lon: -73.1157,
-      lat: 7.1173,
-    },
-    weather: [
-      {
-        id: 803,
-        main: "Clouds",
-        description: "muy nuboso",
-        icon: "04d",
-      },
-    ],
-    base: "stations",
-    main: {
-      temp: 22.88,
-      feels_like: 23.26,
-      temp_min: 22.88,
-      temp_max: 22.88,
-      pressure: 1016,
-      humidity: 78,
-    },
-    visibility: 10000,
-    wind: {
-      speed: 4.63,
-      deg: 180,
-    },
-    clouds: {
-      all: 75,
-    },
-    dt: 1683985554,
-    sys: {
-      type: 1,
-      id: 8581,
-      country: "CO",
-      sunrise: 1683974150,
-      sunset: 1684018914,
-    },
-    timezone: -18000,
-    id: 3688465,
-    name: "Bucaramanga",
-    cod: 200,
-  },
-];
+import { useEffect, useState } from "react";
+import { CityLocalStorage } from "../interface/cityLocalStorage";
+import { City } from "../interface/city";
+import axios from "axios";
+import { useSelector } from "react-redux";
 
 export default function Favorites() {
+  const favorites: CityLocalStorage[] = useSelector((state) => state.counter.favorites);
+  const [favCards, setFavCards] = useState<City[]>([]);
+  const [favCardsLocal, setFavCardsLocal] = useState<CityLocalStorage[]>([]);
+  const [favCardsLocalToCompare, setFavCardsLocalToCompare] = useState<CityLocalStorage[]>([]);
+
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  useEffect(() => {
+    setFavCardsLocal(favorites);
+  }, [favorites]);
+
+  useEffect(() => {
+    setFavCardsLocalToCompare([]);
+    // favCardsLocal.map((cityLocal) => {
+    //   const exists = favCards.findIndex((favCity) => {
+    //     String(favCity.coord.lat).slice(0, 4) === String(cityLocal).slice(0, 4) &&
+    //       String(favCity.coord.lon).slice(0, 4) === String(cityLocal).slice(0, 4);
+    //   });
+    //   console.log(exists);
+    //   if (exists === -1) {
+    //     setFavCardsLocalToCompare()
+    //   }
+    // });
+
+    setFavCards([]);
+    setIsLoading(true);
+    const fetchDataForFavorites = async () => {
+      try {
+        let dataForFavorites: City[] = [];
+
+        for (const c of favCardsLocal) {
+          const { lat, lon } = c;
+          const response = await axios.get(`http://localhost:3000/search/lat-lon/?lat=${lat}&lon=${lon}`);
+          dataForFavorites.push(response.data[0]);
+        }
+
+        setFavCards(dataForFavorites);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchDataForFavorites();
+  }, [favCardsLocal]);
+
   return (
-    <Container sx={{ border: "1px solid red" }}>
+    <Container className="containerFavorites">
       <Box className="boxFavoritesTitle">
         <Typography className="titleFavorites">Ciudades</Typography>
         <Typography
@@ -241,9 +70,28 @@ export default function Favorites() {
         </Typography>
       </Box>
       <Box className="boxCards">
-        {data.map((city, key) => {
-          return <Card city={city} key={key} />;
-        })}
+        {favCards.length === 0 ? (
+          isLoading ? (
+            <Box className="containerSpinner">
+              <div className="spinner"></div>
+            </Box>
+          ) : (
+            <Box className="boxEmptyFavorites">
+              <Typography className="favoritesEmptyText">{`No hay ciudades favoritas en estos momentos, agrega ciudades para verlas aquí.`}</Typography>
+              <svg viewBox="0 0 24 24" className="svgFavoriteIconFavoritesPage">
+                <g>
+                  <g>
+                    <path d="M9.362,9.158c0,0-3.16,0.35-5.268,0.584c-0.19,0.023-0.358,0.15-0.421,0.343s0,0.394,0.14,0.521    c1.566,1.429,3.919,3.569,3.919,3.569c-0.002,0-0.646,3.113-1.074,5.19c-0.036,0.188,0.032,0.387,0.196,0.506    c0.163,0.119,0.373,0.121,0.538,0.028c1.844-1.048,4.606-2.624,4.606-2.624s2.763,1.576,4.604,2.625    c0.168,0.092,0.378,0.09,0.541-0.029c0.164-0.119,0.232-0.318,0.195-0.505c-0.428-2.078-1.071-5.191-1.071-5.191    s2.353-2.14,3.919-3.566c0.14-0.131,0.202-0.332,0.14-0.524s-0.23-0.319-0.42-0.341c-2.108-0.236-5.269-0.586-5.269-0.586    s-1.31-2.898-2.183-4.83c-0.082-0.173-0.254-0.294-0.456-0.294s-0.375,0.122-0.453,0.294C10.671,6.26,9.362,9.158,9.362,9.158z" />
+                  </g>
+                </g>
+              </svg>
+            </Box>
+          )
+        ) : (
+          favCards.map((city, key) => {
+            return <Card city={city} key={key} />;
+          })
+        )}
       </Box>
     </Container>
   );

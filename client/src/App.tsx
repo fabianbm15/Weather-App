@@ -6,6 +6,7 @@ import { useLocation } from "react-router-dom";
 import About from "./components/About";
 import Footer from "./components/Footer";
 import Details from "./components/Details";
+import SearchedCities from "./components/SearchedCities";
 
 function App() {
   const location = useLocation();
@@ -16,12 +17,12 @@ function App() {
         <About />
       ) : location.pathname === "/" ? (
         <Home />
-      ) : location.pathname === "/home" ? (
-        <Home />
       ) : location.pathname === "/details" ? (
         <Details />
       ) : location.pathname === "/popular" ? (
         <Home />
+      ) : location.pathname === "/search" ? (
+        <SearchedCities />
       ) : null}
       <Footer />
     </Box>

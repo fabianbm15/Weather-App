@@ -1,21 +1,22 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Container, Typography, Box } from "@mui/material";
-import "./Favorites.css";
+import "./Popular.css";
 import Card from "./Card";
 import { City } from "../interface/city";
 
-let popularCitiesArray: City[] = [];
-
 export default function Popular() {
   const [popularCities, setPopularCities] = useState<City[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   async function getPopularCities(): Promise<City[]> {
     const response = await axios.get(`http://localhost:3000/popular/`);
+    setIsLoading(false);
     return response.data;
   }
 
   useEffect(() => {
+    setIsLoading(true);
     return () => {
       getPopularCities().then((data) => {
         setPopularCities(data);
@@ -24,11 +25,11 @@ export default function Popular() {
   }, []);
 
   return (
-    <Container sx={{ border: "1px solid red" }}>
-      <Box className="boxFavoritesTitle">
-        <Typography className="titleFavorites">Ciudades</Typography>
+    <Container className="containerPopular">
+      <Box className="boxPopularTitle">
+        <Typography className="titlePopular">Ciudades</Typography>
         <Typography
-          className="titleFavorites"
+          className="titlePopular"
           sx={{
             fontWeight: "500",
             marginLeft: "8px",
@@ -38,9 +39,15 @@ export default function Popular() {
         </Typography>
       </Box>
       <Box className="boxCards">
-        {popularCities.map((city: City, key: number) => {
-          return <Card city={city} key={key} />;
-        })}
+        {isLoading ? (
+          <Box className="containerSpinner">
+            <div className="spinner"></div>
+          </Box>
+        ) : (
+          popularCities.map((city: City, key: number) => {
+            return <Card city={city} key={key} />;
+          })
+        )}
       </Box>
     </Container>
   );

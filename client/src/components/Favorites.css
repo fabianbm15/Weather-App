@@ -1,17 +1,64 @@
-.boxFavoritesTitle {
-   margin-top: 35px;
-   margin-bottom: 35px;
-   display: flex;
+.containerFavorites {
+  min-height: 300px;
+}
+
+.containerFavorites .boxFavoritesTitle {
+  margin-top: 35px;
+  margin-bottom: 35px;
+  display: flex;
+}
+
+.containerFavorites .boxCards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-items: start;
+}
+
+.containerFavorites .containerSpinner {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.containerFavorites .containerSpinner .spinner {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: radial-gradient(farthest-side, #474bff 94%, #0000) top/9px 9px no-repeat,
+    conic-gradient(#0000 30%, #474bff);
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 9px), #000 0);
+  animation: spinner-c7wet2 1s infinite linear;
+}
+
+@keyframes spinner-c7wet2 {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+.containerFavorites .boxEmptyFavorites {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.containerFavorites .favoritesEmptyText {
+  font-size: 20px;
+  text-align: center;
+}
+
+.containerFavorites .svgFavoriteIconFavoritesPage {
+  position: relative;
+  margin: 2rem auto;
+  height: 120px;
+  top: 0;
+  right: 0;
+  filter: invert(82%) sepia(32%) saturate(1078%) hue-rotate(359deg) brightness(95%) contrast(103%);
 }
 
 p.titleFavorites {
-   font-size: 36px;
-   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
-      Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-}
-
-.boxCards {
-   display: grid;
-   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-   justify-items: center;
+  font-size: 36px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+    "Open Sans", "Helvetica Neue", sans-serif;
 }
