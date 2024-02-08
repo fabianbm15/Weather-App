@@ -12,13 +12,18 @@ header.appBarNavBar {
 }
 
 a.titleNavBar {
-  font-size: 36px;
+  /* font-size: clamp(1rem, 1.56vw + 1.56rem, 2.81rem); */
+  font-size: clamp(1.125rem, 0.4375rem + 2.75vw, 2.5rem);
   color: inherit;
   text-decoration: none;
 }
 
+a.titleNavBarBolder {
+  font-weight: 600;
+}
+
 div.boxItemsNavBar {
-  width: 500px;
+  width: 450px;
   margin-left: 90px;
   display: flex;
   justify-content: space-between;
@@ -41,4 +46,37 @@ button.menuItem:hover {
 .logoNavBar {
   width: 70px;
   margin-right: 20px;
+}
+
+.appBarNavBar .menuMovil {
+  display: none;
+}
+
+@media (max-width: 899px) {
+  div.boxItemsNavBar {
+    display: none;
+  }
+  .appBarNavBar .menuMovil {
+    display: flex;
+    justify-content: end;
+  }
+  header.appBarNavBar {
+    height: 100px;
+  }
+}
+
+@media (max-width: 768px) {
+  .logoNavBar {
+    width: 50px;
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 400px) {
+  header.appBarNavBar {
+    height: 70px;
+  }
+  .logoNavBar {
+    width: 35px;
+  }
 }

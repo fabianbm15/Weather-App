@@ -22,16 +22,13 @@ export const counterSlice = createSlice({
     },
     removeFav: (state, action) => {
       state.favorites = state.favorites.filter(
-        (c) =>
-          String(c.lat).slice(0, 4) !== String(action.payload.lat).slice(0, 4) &&
-          String(c.lon).slice(0, 4) !== String(action.payload.lon).slice(0, 4)
+        (c) => String(c.lat) !== String(action.payload.lat) && String(c.lon) !== String(action.payload.lon)
       );
       setItem("favorites", state.favorites);
     },
   },
 });
 
-// Action creators are generated for each case reducer function
 export const { setSearchedCity, changeSearchedCities, addFav, removeFav } = counterSlice.actions;
 
 export default counterSlice.reducer;

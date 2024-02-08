@@ -14,3 +14,10 @@
   width: 100%;
   height: 100%;
 }
+
+@media only screen and (max-width: 768px) {
+  .divContainerMaps {
+    margin-top: 20px;
+    height: 250px;
+  }
+}

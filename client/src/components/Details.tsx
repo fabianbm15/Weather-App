@@ -1,12 +1,15 @@
 import Container from "@mui/material/Container";
 import { Box } from "@mui/material";
 import { Typography } from "@mui/material";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Maps from "./Maps";
+import Button from "@mui/material/Button";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import "./Details.css";
 
 export default function Details() {
   const location = useLocation();
+  const navigate = useNavigate();
   const { city } = location.state;
   const { name } = city;
   const { country } = city.sys;
@@ -21,6 +24,10 @@ export default function Details() {
   return (
     <Container className="containerDetails" style={{ display: "flex" }}>
       <Box className="boxDetailsInfo">
+        <Button className="backButton" onClick={() => navigate("/")}>
+          <ArrowBackIcon />
+          <Typography>Volver</Typography>
+        </Button>
         <Typography className="cityNameDetails" variant="h3">
           {`${name}, ${country}`}
         </Typography>
@@ -30,7 +37,7 @@ export default function Details() {
             src={`https://openweathermap.org/img/wn/${city.weather[0].icon}@2x.png`}
             alt="no image"
           />
-          <Typography variant="h4">{`${temp}°C`}</Typography>
+          <Typography className="textTempDetails" variant="h4">{`${temp}°C`}</Typography>
           <Typography className="textInfoDetails" variant="h6">
             {`${description[0].toUpperCase() + description.slice(1)}`}
           </Typography>

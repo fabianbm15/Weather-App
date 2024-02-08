@@ -7,6 +7,8 @@ import SearchIcon from "@mui/icons-material/Search";
 import { Box, TextField, Button, InputAdornment } from "@mui/material";
 import "./SearchBar.css";
 
+const BACK = import.meta.env.VITE_BACK;
+
 export default function SearchBar() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -17,8 +19,11 @@ export default function SearchBar() {
   };
 
   const handleSearch = async () => {
+    if (searchCity?.length === 0) {
+      return;
+    }
     try {
-      const response = await axios.get(`http://localhost:3000/search?name=${searchCity}`);
+      const response = await axios.get(`${BACK}/search?name=${searchCity}`);
       dispatch(changeSearchedCities(response.data));
       dispatch(setSearchedCity(searchCity));
       navigate("/search");
@@ -31,16 +36,13 @@ export default function SearchBar() {
     <Box className="boxSearchBar">
       <Box className="boxInputSearch" sx={{ borderRadius: "12px" }}>
         <TextField
+          error={searchCity?.length === 0}
           className="inputSearch"
           label="Busca una nueva ciudad"
           variant="filled"
-          sx={{ borderRadius: "12px" }}
+          sx={{ borderRadius: "12px", fontSize: { xs: "18px", md: "25px" } }}
           InputProps={{
             style: {
-              height: "100px",
-              fontSize: "25px",
-              fontFamily:
-                'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif',
               backgroundColor: "white",
               display: "flex",
               alignItems: "center",
@@ -48,14 +50,21 @@ export default function SearchBar() {
             },
             startAdornment: (
               <InputAdornment position="start">
-                <SearchIcon sx={{ width: "60px", height: "60px" }} />
+                <SearchIcon sx={{ width: { xs: "30px", md: "60px" }, height: { xs: "30px", md: "60px" } }} />
               </InputAdornment>
             ),
           }}
           onChange={(e) => handleChange(e)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              handleSearch();
+            }
+          }}
         />
+        {searchCity?.length === 0 ? (
+          <p className="pErrorSearchInput">Este campo no puede estar vacío.</p>
+        ) : null}
       </Box>
-
       <Button className="buttonBuscar" variant="contained" onClick={handleSearch}>
         Buscar
       </Button>

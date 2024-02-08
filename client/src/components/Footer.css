@@ -17,11 +17,16 @@ header.appBarFooter {
 .boxFooter1 {
   height: 100px;
   width: 25%;
+  min-width: 250px;
   display: flex;
   flex-direction: row;
   align-items: center;
   border-right: 1px solid blue;
   margin-right: 50px;
+}
+
+.boxFooter1 a.titleNavBarBolder {
+  font-weight: 600;
 }
 
 .boxFooter2 {
@@ -31,9 +36,70 @@ header.appBarFooter {
   align-items: center;
 }
 
-.nameFooter {
-  color: inherit;
-  text-decoration: none;
-  cursor: auto;
-  user-select: none;
+.appBarFooter .boxFooter2 .menuItemFooter {
+  color: #19376d;
+  text-transform: none;
+  font-weight: 500;
+  font-size: clamp(0.75rem, 0.5625rem + 0.75vw, 1.125rem);
+  transition: width 2s, height 2s, transform 2s;
+}
+
+.appBarFooter .boxFooter2 .menuItemFooter:hover {
+  background-color: #fff;
+  color: #3b60a3;
+  transition: height 0.3s;
+}
+
+@media only screen and (max-width: 899px) {
+  header.appBarFooter {
+    height: 100px;
+    padding: 0px 10px;
+  }
+  .boxFooter1 {
+    width: auto;
+    height: 80px;
+    margin-right: 5%;
+    min-width: 0px;
+    padding-right: 10px;
+  }
+  .boxFooter2 {
+    width: 60%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  header.appBarFooter {
+    height: 80px;
+    padding: 0px 5px;
+  }
+  .boxFooter2 {
+    width: auto;
+    margin: 0 auto;
+    flex-direction: column;
+  }
+  .boxFooter1 {
+    height: 50px;
+    margin-right: 5px;
+  }
+}
+
+@media only screen and (max-width: 280px) {
+  header.appBarFooter {
+    height: auto;
+    padding: 20px 5px;
+  }
+  .boxFooter1 {
+    height: 50px;
+    margin-right: 0px;
+    border: 0px;
+    border-bottom: 1px solid blue;
+  }
+  .boxFooter2 {
+    width: auto;
+    margin: 10px auto;
+    flex-direction: column;
+  }
+  .containerFooter .toolbarFooter {
+    flex-direction: column;
+  }
 }

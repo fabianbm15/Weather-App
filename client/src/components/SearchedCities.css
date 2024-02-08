@@ -1,5 +1,20 @@
 .containerSearched {
   min-height: 300px;
+  flex-direction: column;
+}
+
+.containerSearched .backButton {
+  position: relative;
+  top: 20px;
+  font-family: inherit;
+  color: #19376d;
+  font-weight: 700;
+}
+
+.containerSearched .backButton p {
+  margin-left: 5px;
+  font-weight: 500;
+  font-size: clamp(0.75rem, 0.5625rem + 0.75vw, 1rem);
 }
 
 .containerSearched .boxSearchedTitle {
@@ -10,7 +25,7 @@
 }
 
 .containerSearched .boxSearchedTitle .titleSearched {
-  font-size: 36px;
+  font-size: clamp(1.25rem, 0.75rem + 2vw, 2.25rem);
   color: #19376d;
 }
 
@@ -40,4 +55,22 @@
   display: flex;
   flex-wrap: wrap;
   justify-items: start;
+}
+
+@media only screen and (max-width: 768px) {
+  .containerSearched .boxSearchedTitle {
+    justify-content: center;
+  }
+
+  .containerSearched .boxCards {
+    width: 100% !important;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .containerSearched .boxSearchedTitle {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 }

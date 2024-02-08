@@ -1,16 +1,31 @@
 .containerPopular {
   min-height: 300px;
+  margin-bottom: 30px;
+}
+
+.containerPopular .backButton {
+  position: relative;
+  top: 40px;
+  font-family: inherit;
+  color: #19376d;
+  font-weight: 700;
+}
+
+.containerPopular .backButton p {
+  margin-left: 5px;
+  font-weight: 500;
+  font-size: clamp(0.75rem, 0.5625rem + 0.75vw, 1rem);
 }
 
 .containerPopular .boxPopularTitle {
-  margin-top: 35px;
+  margin-top: 60px;
   margin-bottom: 35px;
   display: flex;
   flex-direction: row;
 }
 
 .containerPopular .boxPopularTitle .titlePopular {
-  font-size: 36px;
+  font-size: clamp(1.25rem, 0.75rem + 2vw, 2.25rem);
   color: #19376d;
 }
 
@@ -40,4 +55,19 @@
   display: flex;
   flex-wrap: wrap;
   justify-items: start;
+}
+
+@media only screen and (max-width: 768px) {
+  .containerPopular {
+    margin-top: 30px;
+  }
+
+  .containerPopular .boxPopularTitle {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    justify-content: center;
+  }
+  .containerPopular .backButton {
+    top: 0px;
+  }
 }

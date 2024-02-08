@@ -1,11 +1,17 @@
 .containerFavorites {
   min-height: 300px;
+  margin-bottom: 30px;
 }
 
 .containerFavorites .boxFavoritesTitle {
   margin-top: 35px;
   margin-bottom: 35px;
   display: flex;
+  font-size: clamp(1.25rem, 0.75rem + 2vw, 2.25rem);
+}
+
+.containerFavorites .boxFavoritesTitle .titleFavorites {
+  font-size: clamp(1.25rem, 0.75rem + 2vw, 2.25rem);
 }
 
 .containerFavorites .boxCards {
@@ -44,7 +50,7 @@
 }
 
 .containerFavorites .favoritesEmptyText {
-  font-size: 20px;
+  font-size: clamp(0.75rem, 0.5rem + 1vw, 1.25rem);
   text-align: center;
 }
 
@@ -60,4 +66,18 @@
 p.titleFavorites {
   font-size: 36px;
   color: #19376d;
+}
+
+@media only screen and (max-width: 768px) {
+  .containerFavorites .boxFavoritesTitle {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    justify-content: center;
+  }
+  .containerFavorites {
+    min-height: 0px;
+  }
+  .containerFavorites .svgFavoriteIconFavoritesPage {
+    height: 60px;
+  }
 }

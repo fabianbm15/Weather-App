@@ -39,29 +39,14 @@ function NavBar() {
         <Toolbar disableGutters>
           {/* Ordenador */}
           <img className="logoNavBar" src={logo} alt="logo" />
-          <Typography
-            component="a"
-            href="/"
-            className="titleNavBar"
-            sx={{
-              display: { xs: "none", md: "flex" },
-            }}
-          >
+          <Typography component="a" href="/" className="titleNavBar">
             Weather
           </Typography>
-          <Typography
-            component="a"
-            href="/"
-            className="titleNavBar"
-            sx={{
-              display: { xs: "none", md: "flex" },
-              fontWeight: "500",
-            }}
-          >
+          <Typography component="a" href="/" className="titleNavBar titleNavBarBolder">
             App
           </Typography>
 
-          <Box className="boxItemsNavBar" sx={{ display: { xs: "none", md: "flex" } }}>
+          <Box className="boxItemsNavBar">
             {pages.map((page) => (
               <Button
                 key={page.text}
@@ -75,27 +60,7 @@ function NavBar() {
           </Box>
 
           {/* Móvil */}
-          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href=""
-            sx={{
-              mr: 2,
-              display: { xs: "flex", md: "none" },
-              flexGrow: 1,
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-            LOGO
-          </Typography>
-          {/* Móvil */}
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+          <Box className="menuMovil" sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
               aria-label="account of current user"

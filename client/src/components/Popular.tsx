@@ -1,13 +1,18 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { City } from "../types/city";
 import Card from "./Card";
 import { Container, Typography, Box } from "@mui/material";
+import Button from "@mui/material/Button";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import "./Popular.css";
 
 const BACK = import.meta.env.VITE_BACK;
 
 export default function Popular() {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [popularCities, setPopularCities] = useState<City[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -28,6 +33,12 @@ export default function Popular() {
 
   return (
     <Container className="containerPopular">
+      {location.pathname === "/popular" ? (
+        <Button className="backButton" onClick={() => navigate("/")}>
+          <ArrowBackIcon />
+          <Typography>Volver</Typography>
+        </Button>
+      ) : null}
       <Box className="boxPopularTitle">
         <Typography className="titlePopular">Ciudades</Typography>
         <Typography

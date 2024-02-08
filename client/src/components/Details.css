@@ -7,14 +7,34 @@
 }
 
 .boxDetailsInfo {
+  position: relative;
   width: 50%;
   background-color: #fff;
-  padding: 30px 40px;
+  padding: 50px 40px 30px 40px;
   border-radius: 12px;
 }
 
+.boxDetailsInfo .backButton {
+  position: absolute;
+  top: 10px;
+  left: 30px;
+  font-family: inherit;
+  color: #19376d;
+  font-weight: 700;
+}
+
+.boxDetailsInfo .backButton p {
+  margin-left: 5px;
+  font-weight: 500;
+  font-size: clamp(0.75rem, 0.5625rem + 0.75vw, 1rem);
+}
+
 .cityNameDetails {
-  font-size: 38px;
+  font-size: clamp(1.25rem, 0.75rem + 2vw, 2.75rem) !important ;
+}
+
+.textTempDetails {
+  font-size: clamp(1.25rem, 0.75rem + 2vw, 2.75rem) !important ;
 }
 
 .iconAndWeather {
@@ -24,11 +44,11 @@
   align-items: center;
   gap: 20px;
   height: 60px;
-  margin: 20px 0px 20px 0px;
+  margin: 20px 0px;
 }
 
 .textInfoDetails {
-  font-size: 18px;
+  font-size: clamp(0.75rem, 0.5625rem + 0.75vw, 1.125rem) !important;
 }
 
 .boxDetailsMap {
@@ -37,4 +57,64 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media only screen and (max-width: 768px) {
+  .containerDetails {
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 20px;
+  }
+  .boxDetailsMap {
+    width: 80%;
+  }
+  .boxDetailsInfo {
+    width: 60%;
+  }
+  .iconAndWeather {
+    margin: 10px 0px;
+    height: auto;
+  }
+  .imageDetails {
+    height: 70px;
+  }
+}
+
+@media only screen and (max-width: 520px) {
+  .containerDetails {
+    padding: 30px 10px;
+  }
+  .boxDetailsInfo {
+    min-height: 0px;
+    width: 80%;
+    padding: 50px 20px 20px 20px;
+  }
+  .imageDetails {
+    height: 50px;
+  }
+  .iconAndWeather {
+    margin: 5px 0px;
+  }
+  .boxDetailsInfo .backButton {
+    left: 10px;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .boxDetailsInfo {
+    width: 90%;
+    text-align: center;
+  }
+  .boxDetailsMap {
+    width: 90%;
+  }
+  .imageDetails {
+    height: 40px;
+  }
+  .iconAndWeather {
+    margin: 5px 0px;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
 }

@@ -5,7 +5,8 @@
 * {
   min-width: 0;
   font: inherit;
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto", sans-serif !important;
+  user-select: none;
 }
 
 *,
@@ -20,6 +21,9 @@ svg {
   display: block;
   height: auto;
   max-width: 100%;
+}
+html {
+  font-size: 16px;
 }
 
 body {

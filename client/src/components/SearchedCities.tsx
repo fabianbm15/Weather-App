@@ -1,20 +1,23 @@
 import axios from "axios";
-import Card from "./Card";
-import { City } from "../types/city";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { changeSearchedCities } from "../features/counter/counterSlice";
+import Card from "./Card";
+import { City } from "../types/city";
 import { Container, Typography, Box } from "@mui/material";
+import Button from "@mui/material/Button";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import "./SearchedCities.css";
 
 export default function SearchedCities() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const searchedCity = useSelector((state) => state.counter.searchedCity);
   const searchedCities: City[] = useSelector((state) => state.counter.searchedCities);
   const [searchedCityLocal, setSearchedCityLocal] = useState<string>("");
 
   useEffect(() => {
-    console.log(searchedCity);
     return () => {
       setSearchedCityLocal(searchedCity);
     };
@@ -36,6 +39,10 @@ export default function SearchedCities() {
 
   return (
     <Container className="containerSearched">
+      <Button className="backButton" onClick={() => navigate("/")}>
+        <ArrowBackIcon />
+        <Typography>Volver</Typography>
+      </Button>
       <Box className="boxSearchedTitle">
         <Typography className="titleSearched">{`Resultados de búsqueda: `}</Typography>
         <Typography
