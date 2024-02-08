@@ -1,5 +1,5 @@
 import React from "react";
-import "./Footer.css";
+import { useNavigate } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -8,24 +8,26 @@ import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
-// import Avatar from '@mui/material/Avatar';
 import Button from "@mui/material/Button";
-// import Tooltip from '@mui/material/Tooltip';
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
+import "./Footer.css";
 
-const pages = ["Acerca de Nosotros"];
+const pages = [{ text: "Acerca de mí", url: "/about" }];
 
 export default function Footer() {
+  const navigate = useNavigate();
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
 
-  const handleCloseNavMenu = () => {
+  const handleCloseNavMenu = (e: string) => {
+    navigate(e);
     setAnchorElNav(null);
   };
+
   return (
     <AppBar position="static" className="appBarFooter">
       <Container className="containerFooter">
@@ -57,8 +59,13 @@ export default function Footer() {
 
           <Box className="boxFooter2">
             {pages.map((page) => (
-              <Button key={page} onClick={handleCloseNavMenu} className="menuItem" sx={{ display: "block" }}>
-                {page}
+              <Button
+                key={page.text}
+                onClick={() => handleCloseNavMenu(page.url)}
+                className="menuItem"
+                sx={{ display: "block" }}
+              >
+                {page.text}
               </Button>
             ))}
             <Typography className="nameFooter" variant="h6" noWrap>
@@ -88,7 +95,14 @@ export default function Footer() {
           </Typography>
           {/* Móvil */}
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-            <IconButton size="large" aria-label="account of current user" aria-controls="menu-appbar" aria-haspopup="true" onClick={handleOpenNavMenu} color="inherit">
+            <IconButton
+              size="large"
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={handleOpenNavMenu}
+              color="inherit"
+            >
               <MenuIcon />
             </IconButton>
             <Menu
@@ -110,9 +124,9 @@ export default function Footer() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <MenuItem key={page.text} onClick={() => handleCloseNavMenu(page.url)}>
                   <Typography className="menuItem" textAlign="center">
-                    {page}
+                    {page.text}
                   </Typography>
                 </MenuItem>
               ))}

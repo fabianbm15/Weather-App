@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { Box, Typography } from "@mui/material";
 import "./Card.css";
-import { City } from "../interface/city";
-import { CityLocalStorage } from "../interface/cityLocalStorage";
+import { City } from "../types/city";
+import { CityLocalStorage } from "../types/cityLocalStorage";
 import { setItem, getItem } from "../utils/LocalStorage";
 import { useDispatch, useSelector } from "react-redux";
 import { addFav, removeFav } from "../features/counter/counterSlice";

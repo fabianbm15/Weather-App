@@ -1,18 +1,18 @@
-import { Box, TextField, Button, InputAdornment } from "@mui/material";
 import axios from "axios";
-import SearchIcon from "@mui/icons-material/Search";
-import "./SearchBar.css";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import { changeSearchedCities, setSearchedCity } from "../features/counter/counterSlice";
+import { useNavigate } from "react-router-dom";
+import SearchIcon from "@mui/icons-material/Search";
+import { Box, TextField, Button, InputAdornment } from "@mui/material";
+import "./SearchBar.css";
 
 export default function SearchBar() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [searchCity, setSearchCity] = useState<string>();
 
-  const handleChange = (e: any) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setSearchCity(e.target.value);
   };
 
@@ -56,7 +56,7 @@ export default function SearchBar() {
         />
       </Box>
 
-      <Button className="buttonBuscar" variant="contained" onClick={() => handleSearch()}>
+      <Button className="buttonBuscar" variant="contained" onClick={handleSearch}>
         Buscar
       </Button>
     </Box>

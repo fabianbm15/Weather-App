@@ -1,40 +1,44 @@
 header.appBarNavBar {
-   width: 100%;
-   height: 150px;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   background-color: white;
-   color: #19376d;
-   box-shadow: none;
-   border: 1px solid black;
-}
-
-div.containerNavBar {
-   border: 1px solid red;
+  width: 100%;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  color: #19376d;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.4);
 }
 
 a.titleNavBar {
-   font-size: 36px;
-   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
-      Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-   color: inherit;
-   text-decoration: none;
+  font-size: 36px;
+  color: inherit;
+  text-decoration: none;
 }
 
 div.boxItemsNavBar {
-   border: 1px solid black;
-   width: 600px;
-   margin-left: 90px;
-   display: flex;
-   justify-content: space-between;
+  width: 500px;
+  margin-left: 90px;
+  display: flex;
+  justify-content: space-between;
 }
 
 button.menuItem {
-   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
-      Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-   color: #19376d;
-   text-transform: none;
-   font-weight: 400;
-   font-size: 18px;
+  color: #19376d;
+  text-transform: none;
+  font-weight: 500;
+  font-size: 18px;
+  transition: width 2s, height 2s, transform 2s;
+}
+
+button.menuItem:hover {
+  background-color: #fff;
+  color: #3b60a3;
+  transition: height 0.3s;
+}
+
+.logoNavBar {
+  width: 70px;
+  margin-right: 20px;
 }

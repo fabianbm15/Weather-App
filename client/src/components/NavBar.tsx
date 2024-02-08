@@ -1,4 +1,6 @@
 import * as React from "react";
+import { useNavigate } from "react-router-dom";
+import logo from "../assets/logo.svg";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -10,7 +12,6 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
-import { useNavigate } from "react-router-dom";
 import "./NavBar.css";
 
 const pages = [
@@ -18,13 +19,10 @@ const pages = [
   { text: "Ciudades Populares", url: "/popular" },
   { text: "Acerca de mí", url: "/about" },
 ];
-// const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function NavBar() {
   const navigate = useNavigate();
-
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-  //   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -40,7 +38,7 @@ function NavBar() {
       <Container className="containerNavBar">
         <Toolbar disableGutters>
           {/* Ordenador */}
-          <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+          <img className="logoNavBar" src={logo} alt="logo" />
           <Typography
             component="a"
             href="/"

@@ -1,6 +1,6 @@
 import axios from "axios";
 import Card from "./Card";
-import { City } from "../interface/city";
+import { City } from "../types/city";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { changeSearchedCities } from "../features/counter/counterSlice";

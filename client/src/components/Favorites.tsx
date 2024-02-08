@@ -1,18 +1,18 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { City } from "../types/city";
+import { CityLocalStorage } from "../types/cityLocalStorage";
+import Card from "./Card";
 import { Container, Typography, Box } from "@mui/material";
 import "./Favorites.css";
-import Card from "./Card";
-import { useEffect, useState } from "react";
-import { CityLocalStorage } from "../interface/cityLocalStorage";
-import { City } from "../interface/city";
-import axios from "axios";
-import { useSelector } from "react-redux";
+
+const BACK = import.meta.env.VITE_BACK;
 
 export default function Favorites() {
   const favorites: CityLocalStorage[] = useSelector((state) => state.counter.favorites);
   const [favCards, setFavCards] = useState<City[]>([]);
   const [favCardsLocal, setFavCardsLocal] = useState<CityLocalStorage[]>([]);
-  const [favCardsLocalToCompare, setFavCardsLocalToCompare] = useState<CityLocalStorage[]>([]);
-
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
@@ -20,27 +20,15 @@ export default function Favorites() {
   }, [favorites]);
 
   useEffect(() => {
-    setFavCardsLocalToCompare([]);
-    // favCardsLocal.map((cityLocal) => {
-    //   const exists = favCards.findIndex((favCity) => {
-    //     String(favCity.coord.lat).slice(0, 4) === String(cityLocal).slice(0, 4) &&
-    //       String(favCity.coord.lon).slice(0, 4) === String(cityLocal).slice(0, 4);
-    //   });
-    //   console.log(exists);
-    //   if (exists === -1) {
-    //     setFavCardsLocalToCompare()
-    //   }
-    // });
-
     setFavCards([]);
     setIsLoading(true);
     const fetchDataForFavorites = async () => {
       try {
-        let dataForFavorites: City[] = [];
+        const dataForFavorites: City[] = [];
 
         for (const c of favCardsLocal) {
           const { lat, lon } = c;
-          const response = await axios.get(`http://localhost:3000/search/lat-lon/?lat=${lat}&lon=${lon}`);
+          const response = await axios.get(`${BACK}/search/lat-lon/?lat=${lat}&lon=${lon}`);
           dataForFavorites.push(response.data[0]);
         }
 

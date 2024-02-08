@@ -1,4 +1,4 @@
-import { CityLocalStorage } from "../interface/cityLocalStorage";
+import { CityLocalStorage } from "../types/cityLocalStorage";
 
 export const getItem = (key: string): CityLocalStorage[] => {
   try {

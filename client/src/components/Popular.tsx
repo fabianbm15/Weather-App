@@ -1,16 +1,18 @@
-import { useEffect, useState } from "react";
 import axios from "axios";
+import { useEffect, useState } from "react";
+import { City } from "../types/city";
+import Card from "./Card";
 import { Container, Typography, Box } from "@mui/material";
 import "./Popular.css";
-import Card from "./Card";
-import { City } from "../interface/city";
+
+const BACK = import.meta.env.VITE_BACK;
 
 export default function Popular() {
   const [popularCities, setPopularCities] = useState<City[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   async function getPopularCities(): Promise<City[]> {
-    const response = await axios.get(`http://localhost:3000/popular/`);
+    const response = await axios.get(`${BACK}/popular/`);
     setIsLoading(false);
     return response.data;
   }
