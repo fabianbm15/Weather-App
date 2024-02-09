@@ -27,17 +27,16 @@ export default function Popular() {
   }
 
   useEffect(() => {
-    // setIsLoading(true);
+    setIsLoading(true);
     console.log("ingresa use effect");
-    return () => {
-      console.log("return");
 
-      getPopularCities().then((data) => {
-        setPopularCities(data);
-        console.log("PopularCities", popularCities);
-      });
-    };
-  }, []);
+    console.log("return");
+
+    getPopularCities().then((data) => {
+      setPopularCities(data);
+      console.log("PopularCities", popularCities);
+    });
+  }, [popularCities]);
 
   return (
     <Container className="containerPopular">
