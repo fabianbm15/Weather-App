@@ -36,7 +36,6 @@ function NavBar() {
     <AppBar position="static" className="appBarNavBar">
       <Container className="containerNavBar">
         <Toolbar disableGutters>
-          {/* Ordenador */}
           <img className="logoNavBar" src={logo} alt="logo" />
           <Typography component="a" href="/" className="titleNavBar">
             Weather
@@ -58,7 +57,6 @@ function NavBar() {
             ))}
           </Box>
 
-          {/* Móvil */}
           <Box className="menuMovil" sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
