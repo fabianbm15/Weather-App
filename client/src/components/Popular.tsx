@@ -17,16 +17,24 @@ export default function Popular() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   async function getPopularCities(): Promise<City[]> {
+    console.log("ingresa a fucntion async");
+
     const response = await axios.get(`${BACK}/popular/`);
     setIsLoading(false);
+    console.log("setIsLoading false y return");
+
     return response.data;
   }
 
   useEffect(() => {
     // setIsLoading(true);
+    console.log("ingresa use effect");
     return () => {
+      console.log("return");
+
       getPopularCities().then((data) => {
         setPopularCities(data);
+        console.log("PopularCities", popularCities);
       });
     };
   }, []);
@@ -61,9 +69,6 @@ export default function Popular() {
             return <Card city={city} key={key} />;
           })
         )}
-        {popularCities.map((city: City, key: number) => {
-          return <Card city={city} key={key} />;
-        })}
       </Box>
     </Container>
   );
