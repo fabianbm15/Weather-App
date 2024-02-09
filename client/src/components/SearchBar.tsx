@@ -19,16 +19,17 @@ export default function SearchBar() {
   };
 
   const handleSearch = async () => {
-    if (searchCity?.length === 0) {
+    if (searchCity?.length !== 0) {
+      try {
+        const response = await axios.get(`${BACK}/search?name=${searchCity}`);
+        dispatch(changeSearchedCities(response.data));
+        dispatch(setSearchedCity(searchCity));
+        navigate("/search");
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
       return;
-    }
-    try {
-      const response = await axios.get(`${BACK}/search?name=${searchCity}`);
-      dispatch(changeSearchedCities(response.data));
-      dispatch(setSearchedCity(searchCity));
-      navigate("/search");
-    } catch (error) {
-      console.log(error);
     }
   };
 
