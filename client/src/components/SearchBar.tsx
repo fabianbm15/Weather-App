@@ -13,18 +13,24 @@ export default function SearchBar() {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const [searchCity, setSearchCity] = useState<string>();
+  const [noCity, setNoCity] = useState<boolean>(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setSearchCity(e.target.value);
+    setNoCity(false);
   };
 
   const handleSearch = async () => {
     if (searchCity?.length !== 0) {
       try {
         const response = await axios.get(`${BACK}/search?name=${searchCity}`);
-        dispatch(changeSearchedCities(response.data));
-        dispatch(setSearchedCity(searchCity));
-        navigate("/search");
+        if (response.data.message === "No se encontraron ciudades con este nombre.") {
+          setNoCity(true);
+        } else {
+          dispatch(changeSearchedCities(response.data));
+          dispatch(setSearchedCity(searchCity));
+          navigate("/search");
+        }
       } catch (error) {
         console.log(error);
       }
@@ -64,6 +70,9 @@ export default function SearchBar() {
         />
         {searchCity?.length === 0 ? (
           <p className="pErrorSearchInput">Este campo no puede estar vacío.</p>
+        ) : null}
+        {noCity === true ? (
+          <p className="pErrorSearchInput">No se encontraron ciudades con este nombre.</p>
         ) : null}
       </Box>
       <Button className="buttonBuscar" variant="contained" onClick={handleSearch}>
