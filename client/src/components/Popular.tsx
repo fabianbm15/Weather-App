@@ -23,7 +23,7 @@ export default function Popular() {
   }
 
   useEffect(() => {
-    setIsLoading(true);
+    // setIsLoading(true);
     return () => {
       getPopularCities().then((data) => {
         setPopularCities(data);
