@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useAppSelector, useAppDispatch } from "../app/hooks";
 import { useNavigate } from "react-router-dom";
 import { changeSearchedCities } from "../features/counter/counterSlice";
 import Card from "./Card";
@@ -11,10 +11,10 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import "./SearchedCities.css";
 
 export default function SearchedCities() {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const searchedCity = useSelector((state) => state.counter.searchedCity);
-  const searchedCities: City[] = useSelector((state) => state.counter.searchedCities);
+  const searchedCity = useAppSelector((state) => state.counter.searchedCity);
+  const searchedCities: City[] = useAppSelector((state) => state.counter.searchedCities);
   const [searchedCityLocal, setSearchedCityLocal] = useState<string>("");
 
   useEffect(() => {
@@ -35,7 +35,7 @@ export default function SearchedCities() {
       };
       handleSearch();
     }
-  }, [searchedCityLocal]);
+  }, [dispatch, searchedCities.length, searchedCity, searchedCityLocal]);
 
   return (
     <Container className="containerSearched">

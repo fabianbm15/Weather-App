@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useAppSelector } from "../app/hooks";
 import { City } from "../types/city";
 import { CityLocalStorage } from "../types/cityLocalStorage";
 import Card from "./Card";
@@ -10,7 +10,7 @@ import "./Favorites.css";
 const BACK = import.meta.env.VITE_BACK;
 
 export default function Favorites() {
-  const favorites: CityLocalStorage[] = useSelector((state) => state.counter.favorites);
+  const favorites: CityLocalStorage[] = useAppSelector((state) => state.counter.favorites);
   const [favCards, setFavCards] = useState<City[]>([]);
   const [favCardsLocal, setFavCardsLocal] = useState<CityLocalStorage[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);

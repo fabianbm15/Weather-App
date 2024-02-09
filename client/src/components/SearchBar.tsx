@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../app/hooks";
 import { changeSearchedCities, setSearchedCity } from "../features/counter/counterSlice";
 import { useNavigate } from "react-router-dom";
 import SearchIcon from "@mui/icons-material/Search";
@@ -10,7 +10,7 @@ import "./SearchBar.css";
 const BACK = import.meta.env.VITE_BACK;
 
 export default function SearchBar() {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const [searchCity, setSearchCity] = useState<string>();
 

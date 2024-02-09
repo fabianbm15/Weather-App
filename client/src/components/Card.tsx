@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { addFav, removeFav } from "../features/counter/counterSlice";
 import { useNavigate } from "react-router-dom";
 import { City } from "../types/city";
@@ -12,14 +12,14 @@ interface CardProps {
 }
 
 export default function Card({ city }: CardProps) {
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+  const favorites: CityLocalStorage[] = useAppSelector((state) => state.counter.favorites);
   const { name } = city;
   const { country } = city.sys;
   const { temp } = city.main;
   const { description } = city.weather[0];
   const { lat, lon } = city.coord;
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const favorites: CityLocalStorage[] = useSelector((state) => state.counter.favorites);
   const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
