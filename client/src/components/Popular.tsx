@@ -36,7 +36,7 @@ export default function Popular() {
       setPopularCities(data);
       console.log("PopularCities", popularCities);
     });
-  }, [popularCities]);
+  }, []);
 
   return (
     <Container className="containerPopular">
