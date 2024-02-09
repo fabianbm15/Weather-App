@@ -4,7 +4,6 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 const front1 = process.env.FRONT1;
-const front2 = process.env.FRONT2;
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
@@ -15,7 +14,7 @@ var app = express();
 
 //Seteamos headers para la respuesta que le enviamos al cliente
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", [`${front1}`, `${front2}`]); //Autorizo recibir solicitudes de este dominio
+  res.header("Access-Control-Allow-Origin", `${front1}`); //Autorizo recibir solicitudes de este dominio
   res.header("Access-Control-Allow-Credentials", true); //Autorizo recibir solicitudes que incluyan el encabezado con credenciales
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept"); //Autorizo recibir solicitudes con dichos hedears
   res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE"); //Autorizo las solicitudes tipo GET, POST, OPTIONS, PUT y DELETE.
