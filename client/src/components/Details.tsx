@@ -10,7 +10,7 @@ import "./Details.css";
 export default function Details() {
   const location = useLocation();
   const navigate = useNavigate();
-  const { city } = location.state;
+  const { city } = location.state || navigate("/");
   const { name } = city;
   const { country } = city.sys;
   const { temp } = city.main;
