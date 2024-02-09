@@ -1,9 +1,15 @@
 .containerDetails {
   color: #19376d;
-  flex-direction: row;
   width: 100%;
   min-height: 480px;
   padding: 44px 80px 60px 80px;
+  justify-content: center;
+}
+
+.containerData {
+  color: #19376d;
+  flex-direction: row;
+  width: 100%;
 }
 
 .boxDetailsInfo {
@@ -59,11 +65,29 @@
   justify-content: center;
 }
 
+.containerDetails .containerSpinner .spinner {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: radial-gradient(farthest-side, #474bff 94%, #0000) top/9px 9px no-repeat,
+    conic-gradient(#0000 30%, #474bff);
+  mask: radial-gradient(farthest-side, #0000 calc(100% - 9px), #000 0);
+  animation: spinner-c7wet2 1s infinite linear;
+}
+
+@keyframes spinner-c7wet2 {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
 @media only screen and (max-width: 768px) {
   .containerDetails {
+    padding: 30px 20px;
+  }
+  .containerData {
     flex-direction: column;
     align-items: center;
-    padding: 30px 20px;
   }
   .boxDetailsMap {
     width: 80%;

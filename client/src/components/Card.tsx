@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
-import { addFav, removeFav } from "../features/counter/counterSlice";
+import { addFav, removeFav, setDetailsCity } from "../features/counter/counterSlice";
 import { useNavigate } from "react-router-dom";
 import { City } from "../types/city";
 import { CityLocalStorage } from "../types/cityLocalStorage";
@@ -51,7 +51,13 @@ export default function Card({ city }: CardProps) {
   return (
     <Box className="boxCardName">
       <Box className="boxCard">
-        <Box className="boxNoHoverDetails" onClick={() => navigate("/details", { state: { city } })}>
+        <Box
+          className="boxNoHoverDetails"
+          onClick={() => {
+            dispatch(setDetailsCity({ lat, lon }));
+            navigate("/details", { state: { city } });
+          }}
+        >
           <svg
             viewBox="0 0 24 24"
             className={
@@ -77,7 +83,13 @@ export default function Card({ city }: CardProps) {
 
         <Box className="boxHoverDetails">
           <Typography className="nameCityHoverDetails">{`${name}`}</Typography>
-          <a className="detailsButtonHover" onClick={() => navigate("/details", { state: { city } })}>
+          <a
+            className="detailsButtonHover"
+            onClick={() => {
+              dispatch(setDetailsCity({ lat, lon }));
+              navigate("/details", { state: { city } });
+            }}
+          >
             Detalles
           </a>
           <a className="detailsButtonHover" onClick={() => handleFav()}>
@@ -87,7 +99,10 @@ export default function Card({ city }: CardProps) {
       </Box>
       <Typography
         className="nameCity"
-        onClick={() => navigate("/details", { state: { city } })}
+        onClick={() => {
+          dispatch(setDetailsCity({ lat, lon }));
+          navigate("/details", { state: { city } });
+        }}
       >{`${name} (${country})`}</Typography>
     </Box>
   );

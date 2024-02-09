@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useNavigate } from "react-router-dom";
-import logo from "../assets/logo.svg";
+import logo from "../assets/weather-icon.svg";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -37,6 +37,7 @@ function NavBar() {
       <Container className="containerNavBar">
         <Toolbar disableGutters>
           <img className="logoNavBar" src={logo} alt="logo" />
+
           <Typography component="a" href="/" className="titleNavBar">
             Weather
           </Typography>

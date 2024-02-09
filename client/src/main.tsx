@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
+import Error404 from "./components/Error404.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { store } from "./app/store";
 import { Provider } from "react-redux";
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
   {
     path: "/search",
     element: <App />,
+  },
+  {
+    path: "/*",
+    element: <Error404 />,
   },
 ]);
 
