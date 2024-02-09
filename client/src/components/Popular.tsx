@@ -61,6 +61,9 @@ export default function Popular() {
             return <Card city={city} key={key} />;
           })
         )}
+        {popularCities.map((city: City, key: number) => {
+          return <Card city={city} key={key} />;
+        })}
       </Box>
     </Container>
   );
