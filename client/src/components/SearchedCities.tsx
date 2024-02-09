@@ -15,7 +15,7 @@ export default function SearchedCities() {
   const navigate = useNavigate();
   const searchedCity = useAppSelector((state) => state.counter.searchedCity);
   const searchedCities: City[] = useAppSelector((state) => state.counter.searchedCities);
-  const [searchedCityLocal, setSearchedCityLocal] = useState<string>("");
+  const [searchedCityLocal, setSearchedCityLocal] = useState<string[]>([]);
 
   useEffect(() => {
     return () => {

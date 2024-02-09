@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getItem, getItemSearchedCity, setItem, setItemSearchedCity } from "../../utils/LocalStorage";
+import { City } from "../../types/city";
 import { CityLocalStorage } from "../../types/cityLocalStorage";
 import { RootState } from "../../app/store";
 import { PayloadAction } from "@reduxjs/toolkit";
@@ -11,7 +12,7 @@ interface Coord {
 
 // Define a type for the slice state
 interface CounterState {
-  searchedCities: string[];
+  searchedCities: City[];
   favorites: CityLocalStorage[];
   searchedCity: string[];
 }
