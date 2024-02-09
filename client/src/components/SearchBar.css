@@ -26,6 +26,10 @@
   height: 100%;
 }
 
+.inputSearch .MuiInputBase-root {
+  height: 100%;
+}
+
 .inputSearch .css-1iulo1y-MuiInputBase-root-MuiFilledInput-root:before {
   width: 90%;
   margin: 0 auto;

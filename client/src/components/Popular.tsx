@@ -17,24 +17,15 @@ export default function Popular() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   async function getPopularCities(): Promise<City[]> {
-    console.log("ingresa a fucntion async");
-
     const response = await axios.get(`${BACK}/popular/`);
     setIsLoading(false);
-    console.log("setIsLoading false y return");
-
     return response.data;
   }
 
   useEffect(() => {
     setIsLoading(true);
-    console.log("ingresa use effect");
-
-    console.log("return");
-
     getPopularCities().then((data) => {
       setPopularCities(data);
-      console.log("PopularCities", popularCities);
     });
   }, []);
 
