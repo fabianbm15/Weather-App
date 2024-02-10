@@ -54,7 +54,7 @@ export default function Card({ city }: CardProps) {
         <Box
           className="boxNoHoverDetails"
           onClick={(event) => {
-            if ((event.target as HTMLElement).tagName === "svg") {
+            if ((event.target as HTMLElement).tagName === "path") {
               handleFav();
               return;
             }
@@ -67,7 +67,6 @@ export default function Card({ city }: CardProps) {
             className={
               isFavorite === true ? "svgFavoriteIcon favoriteIcon" : "svgNonFavoriteIcon favoriteIcon"
             }
-            onClick={() => handleFav()}
           >
             <g>
               <g>
