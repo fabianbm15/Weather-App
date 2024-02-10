@@ -93,7 +93,7 @@
     width: 80%;
   }
   .boxDetailsInfo {
-    width: 60%;
+    width: 80%;
   }
   .iconAndWeather {
     margin: 10px 0px;
@@ -101,6 +101,9 @@
   }
   .imageDetails {
     height: 70px;
+  }
+  .boxDetailsMap {
+    padding: 0px;
   }
 }
 

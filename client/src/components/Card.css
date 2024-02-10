@@ -156,6 +156,9 @@
   .boxCard {
     margin-bottom: 10px;
   }
+  .boxCardName .boxCard:hover .boxHoverDetails {
+    display: none;
+  }
 }
 
 @media (max-width: 550px) {
