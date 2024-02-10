@@ -53,7 +53,11 @@ export default function Card({ city }: CardProps) {
       <Box className="boxCard">
         <Box
           className="boxNoHoverDetails"
-          onClick={() => {
+          onClick={(event) => {
+            if ((event.target as HTMLElement).tagName === "svg") {
+              handleFav();
+              return;
+            }
             dispatch(setDetailsCity({ lat, lon }));
             navigate("/details", { state: { city } });
           }}
