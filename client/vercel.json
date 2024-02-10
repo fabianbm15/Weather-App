@@ -1,0 +1,9 @@
+{
+  "rewrites": [
+    { "source": "/popular", "destination": "/popular" },
+    { "source": "/about", "destination": "/about" },
+    { "source": "/details", "destination": "/details" },
+    { "source": "/search", "destination": "/search" },
+    { "source": "/*", "destination": "/error404" }
+  ]
+}
