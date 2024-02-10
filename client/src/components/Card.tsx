@@ -63,6 +63,7 @@ export default function Card({ city }: CardProps) {
             className={
               isFavorite === true ? "svgFavoriteIcon favoriteIcon" : "svgNonFavoriteIcon favoriteIcon"
             }
+            onClick={() => handleFav()}
           >
             <g>
               <g>
