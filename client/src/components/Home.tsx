@@ -9,15 +9,14 @@ export default function Home() {
     <Container className="containerHome">
       {location.pathname !== "/popular" ? (
         <>
-          <Favorites />
+          <SearchBar />
         </>
       ) : null}
       {location.pathname !== "/popular" ? (
         <>
-          <SearchBar />
+          <Favorites />
         </>
       ) : null}
-
       <Popular />
     </Container>
   );
