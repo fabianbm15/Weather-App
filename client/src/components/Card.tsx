@@ -105,7 +105,7 @@ export default function Card({ city }: CardProps) {
         className="nameCity"
         onClick={() => {
           dispatch(setDetailsCity({ lat, lon }));
-          navigate("/details", { state: { city } });
+          navigate("/details");
         }}
       >{`${name} (${country})`}</Typography>
     </Box>

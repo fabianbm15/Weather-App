@@ -42,7 +42,7 @@
 .pErrorSearchInput {
   color: crimson;
   position: absolute;
-  bottom: -45px;
+  bottom: -36px;
   left: 10px;
   font-size: clamp(0.5rem, 0.4rem + 0.8vw, 1rem);
   font-family: inherit;
@@ -73,7 +73,7 @@ button.buttonBuscar:hover {
     height: 60px;
   }
   .pErrorSearchInput {
-    bottom: -30px;
+    bottom: -28px;
     left: 20px;
   }
   .boxInputSearch {
@@ -96,6 +96,7 @@ button.buttonBuscar:hover {
   }
   .pErrorSearchInput {
     left: 12px;
+    bottom: -22px;
   }
   .boxInputSearch {
     width: 400px;
@@ -108,7 +109,7 @@ button.buttonBuscar:hover {
   }
   button.buttonBuscar {
     margin-left: 10px;
-    width: 150px;
+    width: 100px;
     height: 100%;
   }
 }

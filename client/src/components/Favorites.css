@@ -1,6 +1,7 @@
 .containerFavorites {
-  min-height: 300px;
-  margin-bottom: 30px;
+  min-height: 200px;
+  margin-top: 20px;
+  margin-bottom: -40px;
 }
 
 .containerFavorites .boxFavoritesTitle {

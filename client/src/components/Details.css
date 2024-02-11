@@ -48,13 +48,17 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  gap: 20px;
   height: 60px;
   margin: 20px 0px;
 }
 
 .textInfoDetails {
   font-size: clamp(0.75rem, 0.5625rem + 0.75vw, 1.125rem) !important;
+  margin-left: 20px;
+}
+
+.iconAndWeather .textInfoDetails {
+  margin-left: 20px !important;
 }
 
 .boxDetailsMap {
