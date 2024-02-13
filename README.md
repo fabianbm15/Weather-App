@@ -4,7 +4,7 @@
 
 ## Descripción
 
-Weather-App es un proyecto en grupo que tiene como objetivo mostrar el clima de diferentes ciudades. La aplicación permite a los usuarios buscar ciudades y ver detalles del clima actual, así como guardar ciudades como favoritas.
+Weather-App es un proyecto que tiene como objetivo mostrar el clima de diferentes ciudades. La aplicación permite a los usuarios buscar ciudades y ver detalles del clima actual, así como guardar ciudades como favoritas.
 
 El proyecto se ha desarrollado utilizando tecnologías tanto en el frontend como en el backend.
 
