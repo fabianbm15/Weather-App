@@ -1,8 +1,8 @@
-# WeatherApp
+# Weather-App
 
 ## Descripción
 
-WeatherApp es un proyecto en grupo que tiene como objetivo mostrar el clima de diferentes ciudades. La aplicación permitirá a los usuarios buscar ciudades y ver detalles del clima actual, así como guardar ciudades como favoritas.
+Weather-App es un proyecto en grupo que tiene como objetivo mostrar el clima de diferentes ciudades. La aplicación permite a los usuarios buscar ciudades y ver detalles del clima actual, así como guardar ciudades como favoritas.
 
 El proyecto se ha desarrollado utilizando tecnologías tanto en el frontend como en el backend.
 
@@ -18,25 +18,27 @@ El proyecto se ha desarrollado utilizando tecnologías tanto en el frontend como
 
 ### Frontend
 
-- TypeScript, HTML, CSS, React, Redux, MUI.
+- TypeScript, HTML, CSS, React, Redux, Leaflet, MUI.
 
 ### Backend
 
-- JavaScript, Node.js.
+- JavaScript, Node.js, Express.
 
 ## Instalación y ejecución
 
 A continuación, se detallan los pasos para la instalación y ejecución del proyecto:
 
-1. Clonar este repositorio: `git clone https://github.com/fabianbm15/WeatherApp.git`
+1. Clonar este repositorio: `git clone https://github.com/fabianbm15/Weather-App.git`
 
 2. Instalar las dependencias del frontend: `cd client && npm install`
 
 3. Instalar las dependencias del backend: `cd api && npm install`
 
-4. Ejecutar el frontend y el backend de manera simultánea: `npm run dev`
+4. Ejecutar el backend: `npm start`
+   
+5. Ejecutar el frontend: `npm run dev`
 
-5. Acceder a la aplicación a través de `http://localhost:5173/` en el navegador.
+6. Acceder a la aplicación a través de `http://localhost:5173/` en el navegador.
 
 ## Contribución
 
@@ -44,7 +46,6 @@ Si estás interesado en contribuir al proyecto, eres bienvenido a enviar pull re
 
 ## Equipo de desarrollo
 
-- Naifer David Blanco Vacca: [enlace al perfil de GitHub](https://github.com/naifer552)
 - Carlos Fabian Melgarejo Agudelo: [enlace al perfil de GitHub](https://github.com/fabianbm15)
 
 
