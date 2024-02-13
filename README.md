@@ -1,5 +1,7 @@
 # Weather-App
 
+![image](https://github.com/fabianbm15/Weather-App/assets/115187369/2334f272-7815-4dd1-a4c2-fe657fa5e829)
+
 ## Descripción
 
 Weather-App es un proyecto en grupo que tiene como objetivo mostrar el clima de diferentes ciudades. La aplicación permite a los usuarios buscar ciudades y ver detalles del clima actual, así como guardar ciudades como favoritas.
@@ -46,6 +48,6 @@ Si estás interesado en contribuir al proyecto, eres bienvenido a enviar pull re
 
 ## Equipo de desarrollo
 
-- Carlos Fabian Melgarejo Agudelo: [enlace al perfil de GitHub](https://github.com/fabianbm15)
+- Carlos Fabian Melgarejo Agudelo: [GitHub](https://github.com/fabianbm15)
 
 
