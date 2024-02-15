@@ -16,6 +16,10 @@ El proyecto se ha desarrollado utilizando tecnologías tanto en el frontend como
 
 - Ciudades favoritas: Los usuarios podrán guardar ciudades como favoritas para acceder rápidamente a la información del clima de esas ubicaciones.
 
+## Demo
+Puedes ver una demostración en vivo de la aplicación aquí: [deploy](https://weather-app-fabian.vercel.app/)
+
+
 ## Tecnologías utilizadas
 
 ### Frontend
